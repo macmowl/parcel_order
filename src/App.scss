@@ -2,7 +2,9 @@
 // variables
 $black: #191919;
 $primary: #2193b0;
+$secondary: #DD2F5F;
 $light-gray: #d1d5db;
+
 
 body {
   background-color: #eee;
@@ -10,8 +12,6 @@ body {
   font-size: 1.2rem;
   box-sizing: border-box;
 }
-
-
 
 .container {
   display: flex;
@@ -47,6 +47,7 @@ h1 {
   background-color: white;
   padding: 2rem;
   border-radius: 0.5rem;
+  width: 40%;
   box-shadow:
     4.5px 4.5px 3.6px rgba(0, 0, 0, 0.024),
     12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
@@ -65,22 +66,40 @@ h1 {
     position: relative;
     flex: 1;
     height: 100%;
+    margin: 5px;
+
     
-    input[type=number], select {
-        height: 2rem;
-        border: 1px solid $light-gray;
-        border-radius: 4px;
-        color: $black;
-        font-size: 1.2rem;
-        padding: 5px 0 5px 10px;
-        margin: 0 5px;
+    input[type=number], select, &__price {
+      height: 2rem;
+      border: 1px solid $light-gray;
+      border-radius: 4px;
+      color: $black;
+      font-size: 1.2rem;
+      padding: 5px 0 5px 10px;
+      margin: 0 5px;
+      width: 95%;
+      
+      &:focus {
+        outline: none;
+        border: 1px solid $primary;
+      }
+    }
+    
+    select {
+      height: 50px;
+    }
+    
+    &__price {
+        width: 100px;
         
-        &:focus {
-          outline: none;
-          border: 1px solid $primary;
+        &-p {
+          margin-top: 6px;
+          color: lighten($black, 30%);
         }
       }
   }
+  
+  
 
 .countries {
   display: flex;
@@ -91,7 +110,7 @@ h1 {
     }
 }
 
-label {
+label, .label {
     position: absolute;
     left: 10px;
     top: -8px;
@@ -105,15 +124,12 @@ label {
   position: relative;
   display: flex;
   margin-bottom: 30px;
+  width: 100%;
+  align-items: center;
   
-  .package__delete {
+  &__delete {
     border: 0;
     background: none;
-    height: auto;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
     height: 100%;
     cursor: pointer;
     
@@ -133,20 +149,29 @@ label {
 .buttons {
   display: flex;
   justify-content: space-between;
-  height: 40px;
+  height: 60px;
   
-  .addPackage {
+  &__addPackage {
       border: 1px solid $primary;
       background: none;
       border-radius: 20px;
-      height: 100%;
+      height: 70%;
       padding: 0 10px;
       cursor: pointer;
     }
+  &__price {
+    display: flex;
+    flex-direction: column;
+    
+    p {
+      font-size: 0.8rem;
+      margin: 5px 0 0 0;
+    }
+  }
     
   .saveButton {
       border: none;
-      background: #DD2F5F;
+      background: $secondary;
       color: white;
       border-radius: 8px;
       height: 100%;
@@ -154,6 +179,27 @@ label {
       cursor: pointer;
       font-size: 1.1rem;
       font-weigth: bold;
+      cursor: pointer;
+      
+      &:disabled {
+        background: lighten($black, 60%);
+        cursor: not-allowed;
+        
+        &:hover {
+            background: lighten($black, 50%);
+          }
+      }
+      &:hover {
+        background: darken($secondary, 10%);
+      }
     }
+}
+
+.error {
+  font-size: 0.7rem;
+  color: red;
+  display:block;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 

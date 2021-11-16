@@ -9,7 +9,7 @@ interface IProps {
 	label: string,
 }
 
-const InputSelect = (props: IProps) => {
+const InputSelect: React.FC<IProps> = (props) => {
 	const [countries, setCountries] = useState<Array<ICountries>>([]);
 	
 	useEffect(() => {

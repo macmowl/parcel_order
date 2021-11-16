@@ -9,6 +9,30 @@ The goal of this task is to create a frontend application for a simple parcel or
 
 For the form to work, we have prepared a mock API, which is documented below.
 
+## Solution
+
+This was a challenging project for me and I am pretty proud of what I made. I had notions in Typescript but the project shows me I still have a lot to learn. I completed all tasks except the 2 digits and the bonus (lack of time).
+
+I have loaded 2 libraries:
+- Axios
+- Sass and node-sass
+I really wanted to make code by myself as much as possible.
+
+Globally, it works. Unfortunately, I faced 2 problems, one with axios and another one with Typescript (I suppose).
+
+- Axios: 
+    I load an axios request on useEffect everytime the order object is changed. I get the response as expected but also a bad request. I have no idea of what it could be.
+- Typescript: 
+    I create a handleChange function which contains this line (101 on PackageForm):
+    
+    ```temp.packages[i][e.target.name] = e.target.value;```
+    
+    I get a type error. I suppose Typescript tells me I made a mistake somewhere but I can't find out. So I made a switch to bypass the issue.
+
+If you have any idea why this doesn't work or/and any advice on my code, you know where to find me :)
+
+Regards,
+
 ## Details
 
 ### Order form

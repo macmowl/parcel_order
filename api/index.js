@@ -33,7 +33,7 @@ const proxy = {
 
   'POST /api/quote': (req, res) => {
     const errors = validatePayload(req.body);
-
+    
     if (errors.length) {
       return res.status(400).json({
         success: false,
